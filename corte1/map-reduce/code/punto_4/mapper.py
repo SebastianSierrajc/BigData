@@ -1,5 +1,7 @@
+from sqlite3 import Date
 import sys
 import re
+
 
 ID = 'Transaction unique identifier'
 PRICE = 'Price'
@@ -15,13 +17,14 @@ RECORD = 'Record Status - monthly file only'
 
 header = {}
 
-
 for l, line in enumerate(sys.stdin):
     words = line.strip('\n').split(',')
     if l == 0:
         for i, word in enumerate(words):
             header[word] = i
         continue 
-    date = words[header[DATE]]
-    year = date.split('-')[0]
-    print("{}\t{}".format(year, 1))
+
+    price, city, = words[header[PRICE]], words[header[CITY]].strip()
+    date = words[header[DATE]].split('-')
+    city = re.sub("[^\w\s]", "", city)
+    print("{}\t{}\t".format(city, date[0], price))

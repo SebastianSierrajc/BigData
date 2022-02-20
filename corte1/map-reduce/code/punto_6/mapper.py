@@ -1,6 +1,7 @@
 import sys
 import re
 
+
 ID = 'Transaction unique identifier'
 PRICE = 'Price'
 DATE = 'Date of Transfer'
@@ -15,13 +16,15 @@ RECORD = 'Record Status - monthly file only'
 
 header = {}
 
-
 for l, line in enumerate(sys.stdin):
     words = line.strip('\n').split(',')
     if l == 0:
         for i, word in enumerate(words):
             header[word] = i
         continue 
-    date = words[header[DATE]]
-    year = date.split('-')[0]
-    print("{}\t{}".format(year, 1))
+
+    county, city = words[header[COUNTY]].strip(), words[header[CITY]].strip()
+    county = re.sub("[^\w\s]", "", county)
+    city = re.sub("[^\w\s]", "", city)
+
+    print("{}\t{}".format(county, city))
