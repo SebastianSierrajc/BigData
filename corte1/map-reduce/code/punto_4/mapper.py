@@ -1,3 +1,4 @@
+from sqlite3 import Date
 import sys
 import re
 
@@ -23,6 +24,7 @@ for l, line in enumerate(sys.stdin):
             header[word] = i
         continue 
 
-    price, city= words[header[PRICE]], words[header[CITY]].strip()
+    price, city, = words[header[PRICE]], words[header[CITY]].strip()
+    date = words[header[DATE]].split('-')
     city = re.sub("[^\w\s]", "", city)
-    print("{}\t{}".format(city, price))
+    print("{}\t{}\t".format(city, date[0], price))
