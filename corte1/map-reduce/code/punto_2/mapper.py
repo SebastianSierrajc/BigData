@@ -25,4 +25,4 @@ for l, line in enumerate(sys.stdin):
 
     price, city = words[header[PRICE]], words[header[CITY]].strip()
     city = re.sub("[^\w\s]", "", city)
-    print(f"{city}\t{price}")
+    print("{}\t{}".format(city, price))

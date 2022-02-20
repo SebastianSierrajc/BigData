@@ -9,8 +9,8 @@ for line in sys.stdin:
         current_v += int(value)
     else:
         if current_k != None:
-            print(f"{current_k}\t{current_v}")
+            print("{}\t{}".format(current_k, current_v))
         current_k = key
         current_v = int(value)
 
-print(f"{current_k}\t{current_v}")
+print("{}\t{}".format(current_k, current_v))

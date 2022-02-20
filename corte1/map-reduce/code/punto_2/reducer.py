@@ -11,9 +11,9 @@ for line in sys.stdin:
         current_v += int(value)
     else:
         if current_k != None:
-            print(f"{current_k}\t{current_v / current_c}")
+            print("{}\t{}".format(current_k, current_v / current_c))
         current_k = key
         current_v = int(value)
         current_c = 1
 
-print(f"{current_k}\t{current_v / current_c}")
+print("{}\t{}".format(current_k, current_v / current_c))

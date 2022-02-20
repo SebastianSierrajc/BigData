@@ -24,4 +24,4 @@ for l, line in enumerate(sys.stdin):
         continue 
     date = words[header[DATE]]
     year = date.split('-')[0]
-    print(f"{year}\t{1}")
+    print("{}\t{}".format(year, 1))
