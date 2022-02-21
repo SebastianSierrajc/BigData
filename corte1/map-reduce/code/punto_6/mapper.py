@@ -14,17 +14,11 @@ COUNTY = 'County'
 PPD = 'PPDCategory Type'
 RECORD = 'Record Status - monthly file only'
 
-header = {}
+header = sys.stdin.readline()
 
-for l, line in enumerate(sys.stdin):
+for line in sys.stdin:
     words = line.strip('\n').split(',')
-    if l == 0:
-        for i, word in enumerate(words):
-            header[word] = i
-        continue 
-
-    county, city = words[header[COUNTY]].strip(), words[header[CITY]].strip()
+    county, city = words[8].strip(), words[6].strip()
     county = re.sub("[^\w\s]", "", county)
     city = re.sub("[^\w\s]", "", city)
-
     print("{}\t{}".format(county, city))

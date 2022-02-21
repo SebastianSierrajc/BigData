@@ -14,15 +14,10 @@ COUNTY = 'County'
 PPD = 'PPDCategory Type'
 RECORD = 'Record Status - monthly file only'
 
-header = {}
+header = sys.stdin.readline()
 
-for l, line in enumerate(sys.stdin):
+for line in sys.stdin:
     words = line.strip('\n').split(',')
-    if l == 0:
-        for i, word in enumerate(words):
-            header[word] = i
-        continue 
-
-    date = words[header[DATE]].split('-')
+    date = words[2].split('-')
     year, month = date[0], date[1]
     print("{}\t{}".format(year, month))

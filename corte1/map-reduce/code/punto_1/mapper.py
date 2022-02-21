@@ -1,5 +1,4 @@
 import sys
-import re
 
 ID = 'Transaction unique identifier'
 PRICE = 'Price'
@@ -13,15 +12,9 @@ COUNTY = 'County'
 PPD = 'PPDCategory Type'
 RECORD = 'Record Status - monthly file only'
 
-header = {}
+header = sys.stdin.readline()
 
-
-for l, line in enumerate(sys.stdin):
-    words = line.strip('\n').split(',')
-    if l == 0:
-        for i, word in enumerate(words):
-            header[word] = i
-        continue 
-    date = words[header[DATE]]
-    year = date.split('-')[0]
-    print("{}\t{}".format(year, 1))
+for line in sys.stdin:
+    words = line.strip('\n').split(',') 
+    date = words[2].split('-')
+    print("{}\t{}".format(date[0], 1))
