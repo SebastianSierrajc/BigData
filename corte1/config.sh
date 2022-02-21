@@ -1,7 +1,5 @@
 echo "installing and updating"
 sudo apt install unzip vim
-sudo apt update
-sudo apt upgrade
 
 echo "coping map-reduce jar"
 cp /usr/local/hadoop/share/hadoop/tools/lib/hadoop-streaming-2.7.2.jar ~/hadoop-streaming.jar

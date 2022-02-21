@@ -131,3 +131,4 @@ dmypy.json
 
 # dataset
 archive/
+price_paid_records.csv
