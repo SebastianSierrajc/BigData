@@ -1,4 +1,3 @@
-from calendar import c
 import sys
 
 current_co = None
