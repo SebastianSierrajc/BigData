@@ -19,7 +19,7 @@ header = sys.stdin.readline()
 
 for line in sys.stdin:
     words = line.strip('\n').split(',')
-    price, city, = words[1], words[6].strip()
+    price, city = words[1], words[6].strip()
     date = words[2].split('-')
     city = re.sub("[^\w\s]", "", city)
-    print("{}\t{}\t".format(city, date[0], price))
+    print("{}\t{}\t{}".format(city, date[0], price))
